@@ -76,13 +76,13 @@
 			<br/>
 			<br/><br/>
 			<?php
-                // здесь получаем наши товары
+                                // здесь получаем наши товары
 				$query = "SELECT * FROM tbl_product ORDER BY id ASC";
 				$result = mysqli_query($connect, $query);
-                // если товары есть
+                                // если товары есть
 				if(mysqli_num_rows($result) > 0)
 				{
-                    // проходим по массиву и получаем наши товары
+                                        // проходим по массиву и получаем наши товары
 					while($row = mysqli_fetch_array($result))
 					{
 				?>
@@ -110,12 +110,12 @@
 					}
 				}
 			?>
-            <!-- страница с корзиной -->
+                        <!-- страница с корзиной -->
 			<div style="clear:both"></div>
 			<br />
 			<h3>Order Details</h3>
 			<div class="table-responsive">
-                <!-- таблица с добавленными товарами -->
+                                <!-- таблица с добавленными товарами -->
 				<table class="table table-bordered">
 					<tr>
 						<th width="40%">Item Name</th>
@@ -135,7 +135,7 @@
 						<td><?php echo $values["item_name"]; ?></td>
 						<td><?php echo $values["item_quantity"]; ?></td>
 						<td>$ <?php echo $values["item_price"]; ?></td>
-                        <!-- форматируем стоимость как число через number_format -->
+                                                <!-- форматируем стоимость как число через number_format -->
 						<td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
 						<td><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
 					</tr>
